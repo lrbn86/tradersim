@@ -9,7 +9,7 @@ import { db } from './config';
  * @param collectionName name of the collection to get the documents from
  * @returns an array of document objects that contains the document data and id
  */
-export const getDocsFromCollection = async (collectionName) => {
+export async function getDocsFromCollection(collectionName) {
     const data = await getDocs(collection(db, collectionName));
     return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-};
+}
